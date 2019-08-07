@@ -32,7 +32,7 @@
         remote_src: yes
         src: /tmp/{{ velero_tgz }}
         dest: '{{ velero_parent_install_dir }}'
-        creates: '{{ velero_install_dir }}/velero'
+        creates: '{{ velero_install_exe }}'
   always:
     - name: cleanup
       become: yes
@@ -44,6 +44,6 @@
   become: yes
   become_user: root
   file:
-    src: '{{ velero_install_dir }}/velero'
-    dest: '{{ velero_parent_install_dir }}/bin/velero'
+    src: '{{ velero_install_exe }}'
+    dest: '{{ velero_link }}'
     state: link

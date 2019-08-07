@@ -1,0 +1,3 @@
+---
+velero_os: windows
+velero_exe_suffix: .exe

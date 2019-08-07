@@ -6,4 +6,5 @@ velero_tgz: '{{ velero_name }}.tar.gz'
 velero_url: '{{ velero_mirror }}/{{ velero_ver }}/{{ velero_tgz }}'
 velero_checksum: '{{ velero_checksums[velero_ver][velero_platform] }}'
 velero_install_dir: '{{ velero_parent_install_dir }}/{{ velero_name }}'
-
+velero_install_exe: '{{ velero_install_dir }}/velero{{ velero_exe_suffix | default("") }}'
+velero_link: '{{ velero_parent_install_dir }}/bin/velero{{ velero_exe_suffix | default("") }}'

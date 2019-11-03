@@ -1,36 +1,34 @@
----
+dependencies:
+- role: andrewrothstein.unarchive-deps
+  version: v1.1.2
 galaxy_info:
   author: Andrew Rothstein
-  description: installs velero
   company: BlackRock Financial Management
+  description: installs velero
+  galaxy_tags:
+  - development
   license:
-    - MIT
+  - MIT
   min_ansible_version: 2.0
   platforms:
-    - name: EL
-      versions:
-        - all
-    - name: Fedora
-      versions:
-        - all
-    - name: Ubuntu
-      versions:
-        - all
-    - name: Alpine
-      versions:
-        - all
-    - name: Archlinux
-      versions:
-        - all
-    - name: Debian
-      versions:
-        - buster
-        - jessie
-        - stretch
-  galaxy_tags:
-    - development
+  - name: EL
+    versions:
+    - all
+  - name: Fedora
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Alpine
+    versions:
+    - all
+  - name: Archlinux
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - buster
+    - jessie
+    - stretch
   role_name: velero
-
-dependencies:
-  - role: andrewrothstein.unarchive-deps
-    version: v1.1.1

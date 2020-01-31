@@ -1,9 +1,11 @@
 ---
 # defaults file for velero
-velero_ver: v1.0.0
+velero_ver: v1.2.0
 velero_mirror: https://github.com/heptio/velero/releases/download
 velero_os: linux
 velero_arch: amd64
+
+velero_parent_install_dir: /usr/local
 
 velero_checksums:
   v1.0.0:
@@ -17,5 +19,14 @@ velero_checksums:
     linux-arm64: sha256:5f8bd0175c41500b91fe151ce606bb28b35b0f53ac6306811de0bf3f554a7598
     # https://github.com/heptio/velero/releases/download/v1.0.0/velero-v1.0.0-windows-amd64.tar.gz
     windows-amd64: sha256:e4267bebc8e7ed1c406b585dc9fcb27ffd2d50d362cc6275ca3f38c1ca8b4c88
-
-velero_parent_install_dir: /usr/local
+  v1.2.0:
+    # https://github.com/heptio/velero/releases/download/v1.2.0/velero-v1.2.0-darwin-amd64.tar.gz
+    darwin-amd64: sha256:efc23c39f4b0661f05b6cd6d71eebc5d23ed0164922de7ccbc8f914ebd255304
+    # https://github.com/heptio/velero/releases/download/v1.2.0/velero-v1.2.0-linux-amd64.tar.gz
+    linux-amd64: sha256:4080a37b487a859b5bba8391e965267cd0fe29cd67fd070b6f695fed45619e2c
+    # https://github.com/heptio/velero/releases/download/v1.2.0/velero-v1.2.0-linux-arm.tar.gz
+    linux-arm: sha256:2a2a384b5162de62e99315cb4ddef06eada41177a87e8c03b7e929eb4a60d11d
+    # https://github.com/heptio/velero/releases/download/v1.2.0/velero-v1.2.0-linux-arm64.tar.gz
+    linux-arm64: sha256:84041020bc80438b49b9b8762a17e2bbe44193ecadf9e4dfee224f8d8386ec77
+    # https://github.com/heptio/velero/releases/download/v1.2.0/velero-v1.2.0-windows-amd64.tar.gz
+    windows-amd64: sha256:b4c19a1def03a6d99a0601b49e05c777aab453be668ca5f4666d98cc47af5e7c

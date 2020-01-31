@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-VER=v1.0.0
+VER=v1.2.0
 DIR=~/Downloads
 MIRROR=https://github.com/heptio/velero/releases/download/${VER}
 

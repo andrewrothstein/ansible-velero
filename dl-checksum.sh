@@ -1,31 +1,36 @@
 #!/usr/bin/env sh
-VER=v1.2.0
-DIR=~/Downloads
-MIRROR=https://github.com/heptio/velero/releases/download/${VER}
+set -e
+readonly DIR=~/Downloads
+readonly MIRROR=https://github.com/heptio/velero/releases/download
 
 dl()
 {
-    OS=$1
-    ARCH=$2
-    PLATFORM=${OS}-${ARCH}
-    FILE=velero-${VER}-${PLATFORM}.tar.gz
-    URL=$MIRROR/$FILE
-    LFILE=$DIR/$FILE
+    local ver=$1
+    local os=$2
+    local arch=$3
+    local platform=${os}-${arch}
+    local file=velero-${ver}-${platform}.tar.gz
+    local url=$MIRROR/$ver/$file
+    local lfile=$DIR/$file
 
-    if [ ! -e $LFILE ];
+    if [ ! -e $lfile ];
     then
-        wget -q -O $LFILE $URL
+        wget -q -O $lfile $url
     fi
 
-    printf "    # %s\n" $URL
-    printf "    %s: sha256:%s\n" $PLATFORM `sha256sum $LFILE | awk '{print $1}'`
+    printf "    # %s\n" $url
+    printf "    %s: sha256:%s\n" $platform $(sha256sum $lfile | awk '{print $1}')
 }
 
-printf "  %s:\n" $VER
-dl darwin amd64
-dl linux amd64
-dl linux arm
-dl linux arm64
-dl windows amd64
+dl_ver () {
+    local ver=$1
+    printf "  %s:\n" $ver
+    dl $ver darwin amd64
+    dl $ver linux amd64
+    dl $ver linux arm
+    dl $ver linux arm64
+    dl $ver windows amd64
+}
 
 
+dl_ver ${1:-v1.3.2}

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -e
 readonly DIR=~/Downloads
-readonly MIRROR=https://github.com/heptio/velero/releases/download
+readonly MIRROR=https://github.com/vmware-tanzu/velero/releases/download
 
 dl()
 {
@@ -33,4 +33,4 @@ dl_ver () {
 }
 
 
-dl_ver ${1:-v1.3.2}
+dl_ver ${1:-v1.4.0}

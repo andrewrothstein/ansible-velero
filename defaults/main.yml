@@ -1,7 +1,7 @@
 ---
 # defaults file for velero
-velero_ver: v1.3.2
-velero_mirror: https://github.com/heptio/velero/releases/download
+velero_ver: v1.4.0
+velero_mirror: https://github.com/vmware-tanzu/velero/releases/download
 velero_os: linux
 velero_arch: amd64
 
@@ -41,3 +41,14 @@ velero_checksums:
     linux-arm64: sha256:aea2f77dc11a0aa7d03c7c657397a8c5f8895e8cc2dba7fcf3e8b99547f5ee00
     # https://github.com/heptio/velero/releases/download/v1.3.2/velero-v1.3.2-windows-amd64.tar.gz
     windows-amd64: sha256:e65b06e11ddf42efe2c5f8f8c59851555ddb8c0d9ba8ce8bc5941e33d1febc94
+  v1.4.0:
+    # https://github.com/vmware-tanzu/velero/releases/download/v1.4.0/velero-v1.4.0-darwin-amd64.tar.gz
+    darwin-amd64: sha256:5076be0d966c529ae87a91ad54baa27b2582b1124693c41497c77f73a10151bc
+    # https://github.com/vmware-tanzu/velero/releases/download/v1.4.0/velero-v1.4.0-linux-amd64.tar.gz
+    linux-amd64: sha256:1e8afc6631d36e9fabf618777e00705b7044ade1cab9b02953f237b777f46b91
+    # https://github.com/vmware-tanzu/velero/releases/download/v1.4.0/velero-v1.4.0-linux-arm.tar.gz
+    linux-arm: sha256:2b81d33d2f7f03ee1af5a2855a8ef6baf91cb46b52d06ac718f7688c20caa767
+    # https://github.com/vmware-tanzu/velero/releases/download/v1.4.0/velero-v1.4.0-linux-arm64.tar.gz
+    linux-arm64: sha256:2c6b1a73454b23451ad27c5faabd916b0f9b702384d70eedb596a5bb64ab7735
+    # https://github.com/vmware-tanzu/velero/releases/download/v1.4.0/velero-v1.4.0-windows-amd64.tar.gz
+    windows-amd64: sha256:bc4e9d59929156af599e6899494f414a38233b146003083143d8422602340c6b

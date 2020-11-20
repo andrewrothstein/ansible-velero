@@ -2,3 +2,8 @@
 - hosts: all
   roles:
   - role: '{{ playbook_dir }}'
+  tasks:
+  - command: velero version --client-only
+    register: velero_test_output
+  - debug:
+      msg: '{{ velero_test_output.stdout }}'

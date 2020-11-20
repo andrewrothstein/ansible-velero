@@ -9,7 +9,7 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: check for install
+- name: check for install at {{ velero_install_dir }}
   become: yes
   stat:
     path: '{{ velero_install_dir }}'
@@ -17,12 +17,12 @@
   register: velero_binary
 - when: not velero_binary.stat.exists
   block:
-    - name: download
+    - name: download from {{ velero_url }} to {{ velero_tmp_tgz }}
       become: yes
       become_user: root
       get_url:
         url: '{{ velero_url }}'
-        dest: /tmp/{{ velero_tgz }}
+        dest: '{{ velero_tmp_tgz }}'
         mode: 0644
         checksum: '{{ velero_checksum }}'
     - name: unarchive
@@ -30,7 +30,7 @@
       become_user: root
       unarchive:
         remote_src: yes
-        src: /tmp/{{ velero_tgz }}
+        src: '{{ velero_tmp_tgz }}'
         dest: '{{ velero_parent_install_dir }}'
         creates: '{{ velero_install_exe }}'
   always:
@@ -38,7 +38,7 @@
       become: yes
       become_user: root
       file:
-        path: /tmp/{{ velero_tgz }}
+        path: '{{ velero_tmp_tgz }}'
         state: absent
 - name: link
   become: yes

@@ -37,4 +37,4 @@ dl_ver () {
     dl $lchecksum $ver windows amd64
 }
 
-dl_ver ${1:-v1.5.2}
+dl_ver ${1:-v1.5.3}

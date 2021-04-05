@@ -17,7 +17,7 @@
   register: velero_binary
 - when: not velero_binary.stat.exists
   block:
-    - name: download from {{ velero_url }} to {{ velero_tmp_tgz }}
+    - name: downloading {{ velero_url }} to {{ velero_tmp_tgz }}
       become: yes
       become_user: root
       get_url:
@@ -34,7 +34,7 @@
         dest: '{{ velero_parent_install_dir }}'
         creates: '{{ velero_install_exe }}'
   always:
-    - name: cleanup
+    - name: rm {{ velero_tmp_tgz }}
       become: yes
       become_user: root
       file:

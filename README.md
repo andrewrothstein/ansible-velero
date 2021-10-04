@@ -2,7 +2,7 @@ andrewrothstein.velero
 =========
 ![Build Status](https://github.com/andrewrothstein/ansible-velero/actions/workflows/build.yml/badge.svg)
 
-Installs Heptio's [velero](https://velero.io/)
+Installs VMWare Tanzu [velero](https://velero.io/)
 
 Requirements
 ------------

@@ -26,7 +26,7 @@ dl_ver () {
 
     if [ ! -e $lchecksum ];
     then
-        wget -q -O $lchecksum $checksum_url
+        curl -sSLf -o $lchecksum $checksum_url
     fi
 
     printf "  %s:\n" $ver
@@ -37,4 +37,4 @@ dl_ver () {
     dl $lchecksum $ver windows amd64
 }
 
-dl_ver ${1:-v1.7.1}
+dl_ver ${1:-v1.8.0}

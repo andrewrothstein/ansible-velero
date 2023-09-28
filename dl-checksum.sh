@@ -31,10 +31,12 @@ dl_ver () {
 
     printf "  %s:\n" $ver
     dl $lchecksum $ver darwin amd64
+    dl $lchecksum $ver darwin arm64
     dl $lchecksum $ver linux amd64
     dl $lchecksum $ver linux arm
     dl $lchecksum $ver linux arm64
+    dl $lchecksum $ver linux ppc64le
     dl $lchecksum $ver windows amd64
 }
 
-dl_ver ${1:-v1.11.1}
+dl_ver ${1:-v1.12.0}

@@ -5,8 +5,7 @@ galaxy_info:
   description: installs velero
   galaxy_tags:
     - development
-  license:
-    - MIT
+  license: MIT
   min_ansible_version: 2.0
   platforms:
     - name: Alpine

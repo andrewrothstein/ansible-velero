@@ -1,9 +1,14 @@
 ---
-- hosts: all
-  roles:
-    - role: '{{ playbook_dir }}'
+- name: Testing andrewrothstein.velero
+  hosts: all
   tasks:
-    - command: velero version --client-only
+    - name: Installing andrewrothstein.velero
+      ansible.builtin.include_role:
+        name: '{{ playbook_dir }}'
+    - name: Executing 'velero version --client-only'
+      ansible.builtin.command: velero version --client-only
+      changed_when: false
       register: velero_test_output
-    - debug:
+    - name: Output from 'velero version --client-only'
+      ansible.builtin.debug:
         msg: '{{ velero_test_output.stdout }}'

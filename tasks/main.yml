@@ -1,8 +1,9 @@
 ---
-- include_role:
+- name: Installing andrewrothstein.unarchivedeps
+  ansible.builtin.include_role:
     name: andrewrothstein.unarchivedeps
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -11,41 +12,42 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: check for install at {{ velero_install_dir }}
+- name: Check for install at {{ velero_install_exe }}
   become: true
-  stat:
-    path: '{{ velero_install_dir }}'
+  ansible.builtin.stat:
+    path: '{{ velero_install_exe }}'
   changed_when: false
   register: velero_binary
-- when: not velero_binary.stat.exists
+- name: Downloading and installing velero
+  when: not velero_binary.stat.exists
   block:
-    - name: downloading {{ velero_url }} to {{ velero_tmp_tgz }}
+    - name: Downloading {{ velero_url }} to {{ velero_tmp_tgz }}
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ velero_url }}'
         dest: '{{ velero_tmp_tgz }}'
-        mode: 0644
+        mode: '644'
         checksum: '{{ velero_checksum }}'
-    - name: unarchiving {{ velero_tmp_tgz }}
+    - name: Unarchiving {{ velero_tmp_tgz }}
       become: true
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ velero_tmp_tgz }}'
         dest: '{{ velero_parent_install_dir }}'
         creates: '{{ velero_install_exe }}'
   always:
-    - name: rm {{ velero_tmp_tgz }}
+    - name: Rm {{ velero_tmp_tgz }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ velero_tmp_tgz }}'
         state: absent
-- name: linking {{ velero_link }} to {{ velero_install_exe }}
+- name: Linking {{ velero_link }} to {{ velero_install_exe }}
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ velero_install_exe }}'
     dest: '{{ velero_link }}'
     state: link

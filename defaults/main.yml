@@ -1,6 +1,6 @@
 ---
 # defaults file for velero
-velero_ver: v1.15.1
+velero_ver: v1.15.2
 velero_mirror: https://github.com/vmware-tanzu/velero/releases/download
 velero_arch_map:
   aarch64: arm64
@@ -506,3 +506,19 @@ velero_checksums:
     linux-ppc64le: sha256:3a19a8f2df110d25e7037c2ab38d07db4fa9069b67a4334cb411d5f92cb926fc
     # https://github.com/vmware-tanzu/velero/releases/download/v1.15.1/velero-v1.15.1-windows-amd64.tar.gz
     windows-amd64: sha256:355c81941db40265a85d60aec41560859ed394e3eb28d9fb6a20b0649a77fb1c
+  # https://github.com/vmware-tanzu/velero/releases/download/v1.15.2/CHECKSUM
+  v1.15.2:
+    # https://github.com/vmware-tanzu/velero/releases/download/v1.15.2/velero-v1.15.2-darwin-amd64.tar.gz
+    darwin-amd64: sha256:ba6b9b2d3d79ccca95a9a963d264519715977a194f9d8535ded71a583b381c0b
+    # https://github.com/vmware-tanzu/velero/releases/download/v1.15.2/velero-v1.15.2-darwin-arm64.tar.gz
+    darwin-arm64: sha256:03ee227ac456c2281688e4261aaafabb44bf43a3d7dd562a452b36f32186b3c4
+    # https://github.com/vmware-tanzu/velero/releases/download/v1.15.2/velero-v1.15.2-linux-amd64.tar.gz
+    linux-amd64: sha256:eb62d20fb86ecc6e50fec5de888b965e9c7a5e6862846b83f9b2515230d5604f
+    # https://github.com/vmware-tanzu/velero/releases/download/v1.15.2/velero-v1.15.2-linux-arm.tar.gz
+    linux-arm: sha256:a4500b93bc9836113a40452a5e1b769f736eea81c9d50de597f3b4bfb5db5681
+    # https://github.com/vmware-tanzu/velero/releases/download/v1.15.2/velero-v1.15.2-linux-arm64.tar.gz
+    linux-arm64: sha256:d3cf10a5f3e110efb31b003519c49a8d994abbdcc8c8ab3a2d4af23fc598c1c5
+    # https://github.com/vmware-tanzu/velero/releases/download/v1.15.2/velero-v1.15.2-linux-ppc64le.tar.gz
+    linux-ppc64le: sha256:8f8d02c80456426ba1f6004702db47a08e218f029357fda790b976be61a05c79
+    # https://github.com/vmware-tanzu/velero/releases/download/v1.15.2/velero-v1.15.2-windows-amd64.tar.gz
+    windows-amd64: sha256:1fa7c2448a5751dd3fdfd86ad9c49472d677b97237a25390e7727088ed82d668

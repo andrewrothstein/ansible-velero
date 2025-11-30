@@ -1,7 +1,7 @@
 ---
 # vars file for velero
-velero_os: '{{ ansible_system | lower }}'
-velero_arch: '{{ velero_arch_map[ansible_architecture] }}'
+velero_os: '{{ ansible_facts["system"] | lower }}'
+velero_arch: '{{ velero_arch_map[ansible_facts["architecture"]] }}'
 velero_platform: '{{ velero_os }}-{{ velero_arch }}'
 velero_name: velero-{{ velero_ver }}-{{ velero_platform }}
 velero_tgz: '{{ velero_name }}.tar.gz'
